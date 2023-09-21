@@ -1,5 +1,8 @@
 # ORB-SLAM3
 
+Fork of ORB-SLAM3 with python bindings using pybind11. The python bindings is an add-on to the C++ ORB-SLAM3 code. It does not change any of the original ORB-SLAM3 code, it only provides a 1:1 python interface with the same functions used in the C++ examples in ORB-SLAM3. Tutorial for how to use
+it is located [here](https://mayfly-ai.github.io/sensorleap_manual/demos/ORB_SLAM3/)
+
 ### V1.0, December 22th, 2021
 **Authors:** Carlos Campos, Richard Elvira, Juan J. Gómez Rodríguez, [José M. M. Montiel](http://webdiis.unizar.es/~josemari/), [Juan D. Tardos](http://webdiis.unizar.es/~jdtardos/).
 
