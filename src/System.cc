@@ -1545,5 +1545,15 @@ string System::CalculateCheckSum(string filename, int type)
     return checksum;
 }
 
+cv::Mat System::DrawFrame() {
+    float trackedImageScale = mpTracker->GetImageScale();
+    return mpFrameDrawer->DrawFrame(trackedImageScale);
+}
+
+cv::Mat System::DrawRightFrame() {
+    float trackedImageScale = mpTracker->GetImageScale();
+    return mpFrameDrawer->DrawRightFrame(trackedImageScale);
+}
+
 } //namespace ORB_SLAM
 

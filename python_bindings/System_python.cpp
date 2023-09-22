@@ -24,6 +24,8 @@ PYBIND11_MODULE(pyorbslam3, m)
     PySystem.def("SaveKeyFrameTrajectoryEuRoC", py::overload_cast<const string&>(&ORB_SLAM3::System::SaveKeyFrameTrajectoryEuRoC));
     PySystem.def("ChangeDataset", &ORB_SLAM3::System::ChangeDataset);
     PySystem.def("Shutdown", &ORB_SLAM3::System::Shutdown);
+    PySystem.def("DrawFrame", &ORB_SLAM3::System::DrawFrame);
+    PySystem.def("DrawRightFrame", &ORB_SLAM3::System::DrawRightFrame);
 
     py::enum_<ORB_SLAM3::System::eSensor>(PySystem, "eSensor")
         .value("MONOCULAR", ORB_SLAM3::System::eSensor::MONOCULAR)

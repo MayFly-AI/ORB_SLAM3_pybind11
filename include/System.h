@@ -186,6 +186,9 @@ public:
 
     float GetImageScale();
 
+    cv::Mat DrawFrame();
+    cv::Mat DrawRightFrame();
+
 #ifdef REGISTER_TIMES
     void InsertRectTime(double& time);
     void InsertResizeTime(double& time);

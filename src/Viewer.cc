@@ -204,7 +204,7 @@ void Viewer::Run()
     Twc.SetIdentity();
     pangolin::OpenGlMatrix Ow; // Oriented with g in the z axis
     Ow.SetIdentity();
-    cv::namedWindow("ORB-SLAM3: Current Frame");
+    //cv::namedWindow("ORB-SLAM3: Current Frame");
 
     bool bFollow = true;
     bool bLocalizationMode = false;
@@ -316,7 +316,7 @@ void Viewer::Run()
             mpMapDrawer->DrawMapPoints();
 
         pangolin::FinishFrame();
-
+        /*
         cv::Mat toShow;
         cv::Mat im = mpFrameDrawer->DrawFrame(trackedImageScale);
 
@@ -337,7 +337,7 @@ void Viewer::Run()
 
         cv::imshow("ORB-SLAM3: Current Frame",toShow);
         cv::waitKey(mT);
-
+        */
         if(menuReset)
         {
             menuShowGraph = true;
