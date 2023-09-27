@@ -17,28 +17,27 @@ def main():
     SLAM = pyorbslam3.System(sys.argv[1],sys.argv[2],pyorbslam3.System.eSensor.MONOCULAR,True,0,'')
     imageScale = SLAM.GetImageScale()
 
-#    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-#    output = cv2.VideoWriter('output.mp4', fourcc, 10, (1280,720))
-
     cap = VideoCapture(list(range(64)), '')
     tframe = 1694088977000*1e6
     frame_time_ns = int((1000./30.)*1.e6)
+    frame_idx = 0
     while True:
         frames = cap.read()
         frm = frames[0] # It may have more than 1 frame if sync cameras or ToF. We assume 1 frame
         arr = np.from_dlpack(frm['image']).copy()
         bgr = cv2.cvtColor(arr[:,:,:3], cv2.COLOR_RGB2BGR)
         im = cv2.cvtColor(arr[:,:,:3], cv2.COLOR_RGB2GRAY)
- #       output.write(bgr)
 
         SLAM.TrackMonocular(im, tframe, [], "")
         tframe = tframe+frame_time_ns
 
         res = SLAM.DrawFrame()
         cv2.imshow('res',res)
+        cv2.imshow('bgr',bgr)
         cv2.waitKey(1)
+        frame_idx += 1
 
-#    output.release()
+    output.release()
     SLAM.Shutdown();
 
 if __name__ == "__main__":
